@@ -107,7 +107,7 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Máscara opaca */
+  background-color: rgba(0, 0, 0, 0.3); /* Máscara opaca */
   z-index: 1;
 }
 
@@ -128,6 +128,7 @@ main {
   color: gray;
   font-size: 0.9rem;
   margin: 5px 0;
+  text-align: justify;
 }
 
 .read-more {
