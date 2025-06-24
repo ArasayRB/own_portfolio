@@ -13,9 +13,20 @@
       <h1>Arasay Rodríguez</h1>
       <button class="menu-toggle">☰</button>
       <ul class="menu">
-        <li><a href="#about">About Me</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-lang="es">Sobre mi</a></li>
+        <li><a href="#about" data-lang="en" style="display:none">About Me</a></li>
+        <li><a href="#projects" data-lang="es">Proyectos</a></li>
+        <li><a href="#projects" data-lang="en" style="display:none">Projects</a></li>
+        <li><a href="#contact" data-lang="es">Contacto</a></li>
+        <li><a href="#contact" data-lang="en" style="display:none">Contact</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <div class="lang-control">
+          <label for="language" class="sr-only"></label>
+          <select id="language" onchange="switchLanguage()" aria-label="Seleccionar idioma">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+          </select>
+        </div>
       </ul>
     </nav>
     <div class="header-image">
@@ -24,25 +35,39 @@
   </header>
   <main>
     <section id="about">
-        <h2>About Me</h2>
-        <p>
-            I am a web developer with nearly 10 years of experience building web applications using PHP, Laravel, MySQL, and CMSs such as WordPress. I began my career as a network and database administrator at companies like Caracol SA, where I also developed small-scale applications for departments such as Human Resources and Sales. After that, I spent about two years as a freelancer, delivering tailored solutions for diverse clients. Seeking to broaden my skills and international exposure, I transitioned to remote work, joining ABC Hosting as a web developer. Since then, I have worked with various companies, gaining valuable international experience.
+        <h2 data-lang="es">Sobre Mi</h2>
+        <h2 data-lang="en" style="display:none">About Me</h2>
+        <p data-lang="es">
+            Soy desarrolladora web con casi 10 años de experiencia creando aplicaciones web con PHP, Laravel, MySQL y CMS como WordPress. Comencé como administradora de redes y bases de datos en empresas como Caracol SA, donde también desarrollé herramientas internas para los equipos de Recursos Humanos y Ventas. Más adelante trabajé durante dos años como freelancer, entregando soluciones personalizadas a diversos clientes.
+        </p>        
+        <br data-lang="es">
+        <p data-lang="es">
+            Buscando crecer profesionalmente y obtener experiencia internacional, pasé al trabajo remoto como desarrolladora en ABC Hosting. Desde entonces, he trabajado con varias empresas de distintos países, desarrollando aplicaciones escalables y confiables.
         </p>
-        <br>
-        <p>
-            Currently, my primary focus is my full-time role as a web developer, where I strive to create robust and scalable solutions. Occasionally, I take on freelance projects that align with my expertise and schedule, ensuring they complement rather than interfere with my main responsibilities. This approach allows me to stay adaptable while maintaining a strong commitment to my profession.
+        <p data-lang="es">
+            Actualmente me dedico a tiempo completo a mi rol principal, y en ocasiones acepto proyectos freelance que se alinean con mis habilidades y disponibilidad. Valoro el código limpio, las soluciones inteligentes y un equilibrio saludable entre el trabajo y la vida familiar.
         </p>
-        <p>
-            I value efficiency, innovation, and the ability to strike a healthy balance between my career and family life.
+        <p data-lang="en" style="display:none">
+            I’m a web developer with nearly 10 years of experience building web applications using PHP, Laravel, MySQL, and CMSs like WordPress. I started as a network and database administrator at companies such as Caracol SA, where I also created internal tools for HR and Sales teams. Later, I spent two years as a freelancer, delivering custom solutions to various clients.
+        </p>
+        <br data-lang="en" style="display:none">
+        <p data-lang="en" style="display:none">
+            To grow professionally and gain international experience, I moved into remote development, joining ABC Hosting as a web developer. Since then, I’ve worked with multiple companies across different countries, building scalable and reliable applications.
+        </p>
+        <p data-lang="en" style="display:none">
+            Currently, I’m fully dedicated to my full-time role, and occasionally take on freelance projects that match my skills and availability. I value clean code, smart solutions, and a healthy balance between work and family life.
         </p>
     </section>
     <section id="projects">
-      <h2>Projects</h2>
+      <h2 data-lang="es">Proyectos</h2>
+      <h2 data-lang="en" style="display:none">Projects</h2>
       <div class="project-grid"></div>
     </section>
     <section id="contact">
-      <h2>Contact</h2>
-      <p>Interested in working with me? <a href="mailto:ing.arasay@gmail.com">Send me an email</a>.</p>
+      <h2 data-lang="es">Contacto</h2>
+      <p data-lang="es">Interesado en trabajar conmigo? <a href="mailto:ing.arasay@gmail.com">Envia un email</a>.</p>
+      <h2 data-lang="en" style="display:none">Contact</h2>
+      <p data-lang="en" style="display:none">Interested in working with me? <a href="mailto:ing.arasay@gmail.com">Send me an email</a>.</p>
     </section>
   </main>
   <footer>

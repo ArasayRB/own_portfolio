@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CV - Arasay RB</title>
+
+  <!-- Estilos embebidos -->
+  <style>
+    * {
+        word-break: normal;       /* cambia de break-word a normal */
+        overflow-wrap: break-word; /* para que pueda romper líneas si es necesario, pero no palabras */
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+    background-color: #1f1f1f;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    font-weight: bold;
+    }
+
+    nav a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+    background-color: #003366;
+    }
+
+    .lang-control {
+    margin-left: auto; /* Empuja al extremo derecho */
+    }
+
+    .lang-control select {
+    background-color: #003366;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+    }
+
+    .lang-control select:hover,
+    .lang-control select:focus {
+    background-color: #0056b3;
+    outline: none;
+    }
+
+    /* Ocultar la etiqueta visualmente pero accesible para screen readers */
+    .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    }
+
+    .cv-container {
+      width: 180mm;
+      font-size: 12pt;
+      line-height: 1.6;
+      min-height: 297mm;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+
+    .cv-header,
+    .cv-section,
+    footer {
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .cv-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .cv-header h1 {
+      margin: 0;
+      font-size: 2.2em;
+      color: #003366;
+    }
+
+    .cv-header p {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #555;
+    }
+
+    .cv-section {
+      margin-bottom: 30px;
+    }
+
+    .cv-section h2 {
+      color: #003366;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 5px;
+    }
+
+    .cv-section h3 {
+      margin-top: 15px;
+      margin-bottom: 10px;
+      font-size: 1.1em;
+      color: #003366;
+    }
+
+    .cv-section p,
+    .cv-section li {
+    color: #333;
+    font-size: 12pt;
+    line-height: 1.6;
+    word-break: normal;
+    white-space: normal;
+    }
+
+    .skills-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .skill-pill {
+      background-color: #e0e0e0;
+      padding: 6px 10px;
+      border-radius: 12px;
+      font-size: 0.8em;
+      white-space: nowrap;
+      max-width: 100%;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: #1a0dab;
+      text-decoration: none;
+    }
+
+    footer {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .download-btn {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .download-btn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <a href="index.html" data-lang="es">Portafolio</a>
+    <a href="index.html" data-lang="en" style="display:none">Portfolio</a>
+    <a href="cv.html" data-lang="es">Mi CV</a>
+    <a href="cv.html" data-lang="en" style="display:none">My CV</a>
+    <div class="lang-control">
+    <label for="language" class="sr-only">Idioma:</label>
+    <select id="language" onchange="switchLanguage()" aria-label="Seleccionar idioma">
+      <option value="es">ES</option>
+      <option value="en">EN</option>
+    </select>
+  </div>
+  </nav>
+
+  <!-- Contenido del CV -->
+  <div class="cv-container" id="cv-export">
+    <header class="cv-header">
+      <h1>Arasay RB</h1>
+      <p data-lang="es">Desarrolladora Web | Especialista en Laravel, ReactJS, PHP</p>
+      <p data-lang="en" style="display:none">Web Developer | Specialist in Laravel, ReactJS, PHP</p>
+    </header>
+
+    <section class="cv-section">
+      <h2 data-lang="es">Información Personal</h2>
+      <h2 data-lang="en" style="display:none">Personal Information</h2>
+      <p><strong>Email:</strong> ing.arasay@gmail.com</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/arasayrb">linkedin.com/in/arasayrb</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/ArasayRB">github.com/ArasayRB</a></p>
+    </section>
+
+    <section class="cv-section">
+      <h2 data-lang="es">Idiomas</h2>
+      <h2 data-lang="en" style="display:none">Languages</h2>
+      <ul>
+        <li data-lang="es"><strong>Español:</strong> Nativo</li>
+        <li data-lang="en" style="display:none"><strong>Spanish:</strong> Native</li>
+        <li data-lang="es"><strong>Inglés:</strong> Intermedio (B2)</li>
+        <li data-lang="en" style="display:none"><strong>English:</strong> Intermediate (B2)</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2 data-lang="es">Experiencia Profesional</h2>
+      <h2 data-lang="en" style="display:none">Professional Experience</h2>
+      <ul>
+        <li>
+          <strong>CACTUS MEDIA</strong> ,México - (2022 - ACTUALIDAD)
+          <p data-lang="es">Diseña y desarrolla aplicaciones web desde cero, participando en todas las fases del ciclo de desarrollo. Mantiene y mejora sistemas existentes, aplicando metodologías Scrum y Kanban con gestión de proyectos a través de Jira. Documenta tareas y proyectos realizados, y aplica prácticas de TDD con pruebas en PHPUnit para garantizar la calidad del desarrollo. Realiza despliegues de aplicaciones y gestiona entornos de hosting, servidores web y bases de datos, utilizando comandos Bash y Git para el control de versiones.</p>
+          <p data-lang="en" style="display:none">Designs and develops web applications from scratch, participating in all stages of the development lifecycle. Maintains and enhances existing systems, applying Scrum and Kanban methodologies with project management using Jira. Documents tasks and completed projects, and applies TDD practices with PHPUnit for robust testing. Deploys applications and manages hosting environments, web servers, and databases, using Bash and Git for deployment and version control.</p>
+        </li>
+        <li>
+          <strong>TU VENDOR</strong> , Panama, Panama - (2022 - 2023)
+          <p data-lang="es">Desarrolla y mantiene nuevas funcionalidades para plataformas de comercio electrónico. Gestiona la resolución de errores en entornos de producción e integra APIs de terceros para el procesamiento de pagos con tarjetas estudiantiles.</p>
+          <p data-lang="en" style="display:none">Builds and maintains new features for e-commerce platforms. Handles bug fixing in production environments and integrates third-party APIs for processing student card payments.</p>
+        </li>
+        <li>
+          <strong>ABC HOSTING </strong> , Belice - (2018)
+          <p data-lang="es">Desarrolla nuevas funcionalidades para aplicaciones de servicios de alojamiento web basadas en entornos dockerizados. Soluciona errores que surgen durante el ciclo de vida de las aplicaciones en producción. Utiliza metodologías Scrum y Kanban, y gestiona las tareas mediante Trello para la coordinación de proyectos.</p>
+          <p data-lang="en" style="display:none">Develops new features for web hosting service applications based on a Dockerized environment. Troubleshoots and resolves issues that arise during the application's production lifecycle. Uses Scrum and Kanban methodologies, and manages tasks through Trello for project coordination.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2 data-lang="es">Formación Académica</h2>
+      <h2 data-lang="en" style="display:none">Academic Background</h2>
+      <ul>
+        <li data-lang="es"><strong>Ingles</strong> - IELTS, La Habana, La Habana   (2023)</li>
+        <li data-lang="en" style="display:none"><strong>English</strong> - IELTS, La Habana, La Habana   (2023)</li>
+        <li data-lang="es"><strong>Ingenieria en Computación</strong> - Universidad Carlos Rafael Rodriguez, Cienfuegos, Cienfuegos (2008 - 2013)</li>
+        <li data-lang="en" style="display:none"><strong>Computer Engineer</strong> - Carlos Rafael Rodriguez University, Cienfuegos, Cienfuegos (2008 - 2013)</li>
+        <li data-lang="es"><strong>Bachiller</strong> - Eusebio Olivera IPVCE, Sancti Spiritus, Sancti Spiritus   (2005 - 2008)</li>
+        <li data-lang="en" style="display:none"><strong>Bacheller</strong> - Eusebio Olivera IPVCE, Sancti Spiritus, Sancti Spiritus   (2005 - 2008)</li>
+      </ul>
+    </section>
+
+    <section class="cv-section">
+      <h2 data-lang="es">Habilidades Técnicas</h2>
+      <h2 data-lang="en" style="display:none">Technical Skills</h2>
+
+      <h3 data-lang="es">Frontend</h3>
+      <h3 data-lang="en" style="display:none">Frontend</h3>
+      <div class="skills-group">
+        <span class="skill-pill">HTML5/CSS3</span>
+        <span class="skill-pill">JavaScript</span>
+        <span class="skill-pill">VueJS</span>
+        <span class="skill-pill">ReactJS</span>
+        <span class="skill-pill">Bootstrap 3</span>
+        <span class="skill-pill">Bootstrap 5</span>
+        <span class="skill-pill">TailwindCSS</span>
+        <span class="skill-pill">LESS</span>
+        <span class="skill-pill">FabricJs</span>
+        <span class="skill-pill">Canvas</span>
+      </div>
+
+      <h3 data-lang="es">Backend</h3>
+      <h3 data-lang="en" style="display:none">Backend</h3>
+      <div class="skills-group">
+        <span class="skill-pill">Laravel</span>
+        <span class="skill-pill">PHP</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Redis</span>
+        <span class="skill-pill">MySQL</span>
+        <span class="skill-pill">LAMPP</span>
+        <span class="skill-pill">JWT</span>
+        <span class="skill-pill">OAuth</span>
+        <span class="skill-pill">Queues</span>
+        <span class="skill-pill">Crons</span>
+        <span class="skill-pill">BASH</span>
+      </div>
+
+      <h3 data-lang="es">Tecnologías y DevOps</h3>
+      <h3 data-lang="en" style="display:none">Technologies & DevOps</h3>
+      <div class="skills-group">
+        <span class="skill-pill">Docker</span>
+        <span class="skill-pill">GitLab</span>
+        <span class="skill-pill">GitHub</span>
+        <span class="skill-pill">Nginx</span>
+        <span class="skill-pill">YARN</span>
+        <span class="skill-pill">AWS</span>
+        <span class="skill-pill">S3</span>
+        <span class="skill-pill">DNS</span>
+      </div>
+
+      <h3 data-lang="es">APIs y herramientas</h3>
+      <h3 data-lang="en" style="display:none">APIs & Tools</h3>
+      <div class="skills-group">
+        <span class="skill-pill">Ajax</span>
+        <span class="skill-pill">Datatables</span>
+        <span class="skill-pill">JQuery</span>
+        <span class="skill-pill">GoogleApi</span>
+        <span class="skill-pill">Mapbox</span>
+        <span class="skill-pill">Ninja Invoice</span>
+        <span class="skill-pill">Swagger</span>
+        <span class="skill-pill">Postman</span>
+        <span class="skill-pill">Trello</span>
+        <span class="skill-pill">Jira</span>
+        <span class="skill-pill">E-commerce</span>
+        <span class="skill-pill">Telescope</span>
+        <span class="skill-pill">Redux</span>
+        <span class="skill-pill">SCRUM</span>
+      </div>
+    </section>
+  </div>
+
+  <!-- Botón de descarga -->
+  <footer>
+    <button class="download-btn" onclick="generatePDF()" aria-label="Descargar CV en PDF" title="Descargar CV">
+         <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="20" height="20" viewBox="0 0 24 24" >
+    <path d="M19 15v4H5v-4H3v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4h-2zM12 3v12m0 0l-4-4m4 4l4-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </svg>
+    </button>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+  <script>
+    function switchLanguage() {
+      const lang = document.getElementById('language').value;
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = el.getAttribute('data-lang') === lang ? '' : 'none';
+      });
+    }
+
+    function generatePDF() {
+      const lang = document.getElementById('language').value;
+      switchLanguage();
+      const element = document.getElementById('cv-export');
+
+      
+
+      const options = {
+        margin: 10,
+        filename: lang === 'en' ? 'CV_ArasayRB_EN.pdf' : 'CV_ArasayRB_ES.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 1.5, useCORS: true, scrollY: 0 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+      };
+
+      const button = document.querySelector('.download-btn');
+      button.style.display = 'none';
+
+      setTimeout(() => {
+        html2pdf().set(options).from(element).save().then(() => {
+          button.style.display = 'inline-block';
+        });
+      }, 500);
+    }
+
+    window.onload = switchLanguage;
+  </script>
+</body>
+</html>
